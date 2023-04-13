@@ -1,0 +1,94 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run -d chrome
+
+## exception
+
+RPCError: ext.flutter.debugDumpLayerTree: (-32603) ext.flutter.debugDumpLayerTree: Unexpected error from chrome devtools:
+text: Uncaught (in promise)
+exception:
+  preview: null
+  description: null
+  type: string
+  value: Unexpected null value.
+attempted JS eval: `require("dart_sdk").developer.invokeExtension(
+    "ext.flutter.debugDumpLayerTree", JSON.stringify({}));
+`
+
+#0      handleErrorIfPresent (package:dwds/src/utilities/shared.dart:96:5)
+#1      getResultOrHandleError (package:dwds/src/utilities/shared.dart:108:3)
+#2      AppInspector.jsEvaluate (package:dwds/src/debugging/inspector.dart:316:20)
+<asynchronous suspension>
+#3      StackZoneSpecification._registerUnaryCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:124:15)
+<asynchronous suspension>
+
+
+```
+#0      new _OutstandingRequest (package:vm_service/src/vm_service.dart:1746:45)
+#1      VmService._call (package:vm_service/src/vm_service.dart:2262:21)
+#2      VmService.callServiceExtension (package:vm_service/src/vm_service.dart:2233:14)
+#3      FlutterVmService._checkedCallServiceExtension (package:flutter_tools/src/vmservice.dart:820:28)
+#4      FlutterVmService.invokeFlutterExtensionRpcRaw (package:flutter_tools/src/vmservice.dart:839:49)
+#5      FlutterVmService.flutterDebugDumpLayerTree (package:flutter_tools/src/vmservice.dart:596:50)
+#6      ResidentHandlers.debugDumpLayerTree (package:flutter_tools/src/resident_runner.dart:739:53)
+<asynchronous suspension>
+#7      TerminalHandler.processTerminalInput (package:flutter_tools/src/resident_runner.dart:1760:7)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, 3.7.9, on Microsoft Windows [Version 10.0.22621.1413], locale en-IN)
+    [32m•[39m Flutter version 3.7.9 on channel stable at C:\Users\HP\Downloads\flutter_windows_3.7.9-stable\flutter
+    [32m•[39m Upstream repository https://github.com/flutter/flutter.git
+    [32m•[39m Framework revision 62bd79521d (13 days ago), 2023-03-30 10:59:36 -0700
+    [32m•[39m Engine revision ec975089ac
+    [32m•[39m Dart version 2.19.6
+    [32m•[39m DevTools version 2.20.1
+
+[32m[✓][39m Windows Version (Installed version of Windows is version 10 or higher)
+
+[33m[!][39m Android toolchain - develop for Android devices (Android SDK version 33.0.2)
+    [32m•[39m Android SDK at C:\Users\HP\AppData\Local\Android\sdk
+    [31m✗[39m cmdline-tools component is missing
+      Run `path/to/sdkmanager --install "cmdline-tools;latest"`
+      See https://developer.android.com/studio/command-line for more details.
+    [31m✗[39m Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/docs/get-started/install/windows#android-setup for more details.
+
+[32m[✓][39m Chrome - develop for the web
+    [32m•[39m Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[31m[✗][39m Visual Studio - develop for Windows
+    [31m✗[39m Visual Studio not installed; this is necessary for Windows development.
+      Download at https://visualstudio.microsoft.com/downloads/.
+      Please install the "Desktop development with C++" workload, including all of its default components
+
+[32m[✓][39m Android Studio (version 2022.1)
+    [32m•[39m Android Studio at C:\Program Files\Android\Android Studio1
+    [32m•[39m Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    [32m•[39m Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    [32m•[39m Java version OpenJDK Runtime Environment (build 11.0.15+0-b2043.56-9505619)
+
+[32m[✓][39m VS Code (version 1.77.2)
+    [32m•[39m VS Code at C:\Users\HP\AppData\Local\Programs\Microsoft VS Code
+    [32m•[39m Flutter extension version 3.62.0
+
+[32m[✓][39m Connected device (4 available)
+    [32m•[39m Redmi Note 9 Pro Max (mobile) • ae51c11c • android-arm64  • Android 12 (API 31)
+    [32m•[39m Windows (desktop)             • windows  • windows-x64    • Microsoft Windows [Version 10.0.22621.1413]
+    [32m•[39m Chrome (web)                  • chrome   • web-javascript • Google Chrome 112.0.5615.49
+    [32m•[39m Edge (web)                    • edge     • web-javascript • Microsoft Edge 112.0.1722.39
+
+[32m[✓][39m HTTP Host Availability
+    [32m•[39m All required HTTP hosts are available
+
+[33m![39m Doctor found issues in 2 categories.
+```
