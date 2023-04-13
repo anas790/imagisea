@@ -73,12 +73,13 @@ class _Loading_screenState extends State<Loading_screen> {
                        ),
                      ),
            const SizedBox(
-             height: 90,
+             height: 30,
            ),
 
-           LoadingAnimationWidget.horizontalRotatingDots(
-               color: Colors.blue.shade500,
-               size: 50),
+          LoadingAnimationWidget.prograssiveDots(color: Colors.blue, size: 80),
+           // LoadingAnimationWidget.horizontalRotatingDots(
+           //     color: Colors.blue.shade500,
+           //     size: 50),
 
            Text(
              'Loading Imagine Engine...',
@@ -86,7 +87,7 @@ class _Loading_screenState extends State<Loading_screen> {
                style: GoogleFonts.alikeAngular(
                  textStyle: const TextStyle(
                    color: Colors.grey,
-                   fontSize: 18,
+                   fontSize: 20,
                    fontWeight: FontWeight.bold,
                    letterSpacing: 1,
                  ),
