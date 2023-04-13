@@ -3,13 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'dart:async';
-
 import 'package:imagisea/profile.dart';
 
 
 void main() {
   runApp(const MyApp());
-  Login();
+  MyProfile();
 }
 
 class MyApp extends StatelessWidget {

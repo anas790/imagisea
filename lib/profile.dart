@@ -176,73 +176,76 @@ class _MyProfileState extends State<MyProfile> {
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Flexible(
-                      flex: 1,
-                      child: Card(
-                        elevation: 0,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            children: const [
-                              Icon(Icons.image),
-                              Text(
-                                'Item',
-                                style: TextStyle(color: Colors.black),
-                              )
-                            ],
+              Padding(
+                padding: const EdgeInsets.only(top: 30.0, bottom: 20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Flexible(
+                        flex: 1,
+                        child: Card(
+                          elevation: 0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              children: const [
+                                Icon(Icons.image),
+                                Text(
+                                  'Item',
+                                  style: TextStyle(color: Colors.black),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Flexible(
-                      flex: 1,
-                      child: Card(
-                        elevation: 0,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            children: const [
-                              Icon(Icons.bar_chart),
-                              Text(
-                                'Activity',
-                                style: TextStyle(color: Colors.black),
-                              )
-                            ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Flexible(
+                        flex: 1,
+                        child: Card(
+                          elevation: 0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              children: const [
+                                Icon(Icons.bar_chart),
+                                Text(
+                                  'Activity',
+                                  style: TextStyle(color: Colors.black),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Flexible(
-                      flex: 1,
-                      child: Card(
-                        elevation: 0,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            children: const [
-                              Icon(Icons.people),
-                              Text(
-                                'Followers',
-                                style: TextStyle(color: Colors.black),
-                              )
-                            ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Flexible(
+                        flex: 1,
+                        child: Card(
+                          elevation: 0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              children: const [
+                                Icon(Icons.people),
+                                Text(
+                                  'Followers',
+                                  style: TextStyle(color: Colors.black),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -333,14 +336,14 @@ class _MyProfileState extends State<MyProfile> {
                 ),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.only(left: 15),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Your Collection',
+                    'Your Collections',
                     style: TextStyle(fontSize: 20.0),
                   ),
                 ),
