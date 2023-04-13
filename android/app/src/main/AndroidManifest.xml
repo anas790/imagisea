@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.imagisea">
+    package="com.crested.imagisea">
    <application
         android:label="imagisea"
         android:name="${applicationName}"
