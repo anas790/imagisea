@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:imagisea/screens/login_screen.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-
-void main() {
-  runApp(const Loading_screen());
-}
 
 class Loading_screen extends StatefulWidget {
   const Loading_screen({Key? key}) : super(key: key);
@@ -17,14 +14,20 @@ class Loading_screen extends StatefulWidget {
 class _Loading_screenState extends State<Loading_screen> {
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Login()),
+      );
+    });
     return MaterialApp(
       title: 'Loading Screen',
       home: Scaffold(
         body: Column(
          children: [
            Container(
-             height: 450,
-             width: 450,
+             height: 500,
+             width: 500,
              decoration: BoxDecoration(
                  color: Colors.blue,
                  borderRadius: const BorderRadius.only(
@@ -43,7 +46,7 @@ class _Loading_screenState extends State<Loading_screen> {
              ),
                      child:
                        Padding(
-                         padding: const EdgeInsets.only(top: 70.0),
+                         padding: const EdgeInsets.only(top: 100.0),
                          child: Column(
                            children: [
                              Center(
@@ -55,7 +58,9 @@ class _Loading_screenState extends State<Loading_screen> {
                                        ),
                                      ),
                              ),
-                             const SizedBox( height: 40.0),
+                             const SizedBox(
+                               height: 50,
+                             ),
 
                              Text(
                                'IMAGISEA',
@@ -72,11 +77,11 @@ class _Loading_screenState extends State<Loading_screen> {
                          ),
                        ),
                      ),
-           const SizedBox(
-             height: 30,
-           ),
 
-          LoadingAnimationWidget.prograssiveDots(color: Colors.blue, size: 80),
+          Padding(
+            padding: const EdgeInsets.only(top: 130.0),
+            child: LoadingAnimationWidget.prograssiveDots(color: Colors.blue, size: 80),
+          ),
            // LoadingAnimationWidget.horizontalRotatingDots(
            //     color: Colors.blue.shade500,
            //     size: 50),

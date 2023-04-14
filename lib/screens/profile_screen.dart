@@ -188,7 +188,7 @@ class _MyProfileState extends State<MyProfile> {
                         child: Card(
                           elevation: 0,
                           child: Padding(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: const EdgeInsets.only(left: 30.0, right: 30, top: 20, bottom: 20),
                             child: Column(
                               children: const [
                                 Icon(Icons.image),
@@ -209,7 +209,7 @@ class _MyProfileState extends State<MyProfile> {
                         child: Card(
                           elevation: 0,
                           child: Padding(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: const EdgeInsets.only(left: 22, right: 22, top: 20, bottom: 20),
                             child: Column(
                               children: const [
                                 Icon(Icons.bar_chart),
@@ -230,7 +230,7 @@ class _MyProfileState extends State<MyProfile> {
                         child: Card(
                           elevation: 0,
                           child: Padding(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: const EdgeInsets.only(left: 16.0, right: 16, top: 20, bottom: 20),
                             child: Column(
                               children: const [
                                 Icon(Icons.people),
