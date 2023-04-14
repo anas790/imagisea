@@ -38,6 +38,7 @@ class _HomepageState extends State<Homepage> {
                   child: Flexible(
                     flex: 1,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'IMAGISEA',
@@ -76,10 +77,11 @@ class _HomepageState extends State<Homepage> {
                           const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: TextField(
-                              maxLines: 2,
+                              maxLines: 1,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintMaxLines: 2,
+                                hintMaxLines: 1,
+                                hintText: 'Go Crazy on your imagination!',
                               ),
                             ),
                           ),
