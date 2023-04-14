@@ -12,6 +12,7 @@ class _Finalized_screenState extends State<Finalized_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Flexible(

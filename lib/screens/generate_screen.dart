@@ -14,6 +14,7 @@ class _Generate_screenState extends State<Generate_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Flexible(
