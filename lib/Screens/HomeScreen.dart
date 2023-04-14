@@ -15,27 +15,28 @@ class _HomepageState extends State<Homepage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Flexible(
-            fit: FlexFit.tight,
-            child: Container(
-              alignment: Alignment.topCenter,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.blue.shade900,
-                    Colors.blue,
-                  ],
-                ),
-                borderRadius: const BorderRadius.only(
-                  bottomRight: Radius.circular(30),
-                  bottomLeft: Radius.circular(30),
-                ),
+          Container(
+            height: MediaQuery.of(context).size.height /3.5,
+            alignment: Alignment.topCenter,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.blue.shade900,
+                  Colors.blue,
+                ],
               ),
-              child: Column(
-                children: [
-                  SafeArea(
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(30),
+                bottomLeft: Radius.circular(30),
+              ),
+            ),
+            child: Column(
+              children: [
+                SafeArea(
+                  child: Flexible(
+                    flex: 1,
                     child: Row(
                       children: [
                         Text(
@@ -57,11 +58,14 @@ class _HomepageState extends State<Homepage> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height / 50,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 50,
+                ),
+                Flexible(
+                  flex: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Container(
                       decoration: const BoxDecoration(
                         color: Colors.white,
@@ -102,11 +106,54 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          Flexible(flex: 2, child: Container()),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                const Text(
+                  "Select ",
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
+                ),
+                RichText(
+                  text: const TextSpan(
+                    text: 'Style ',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Optional',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                          height: 2,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: null,
+                  child: Row(
+                    children: const [
+                      Text('See All'),
+                      Icon(Icons.arrow_right),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
