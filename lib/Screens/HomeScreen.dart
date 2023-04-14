@@ -16,7 +16,7 @@ class _HomepageState extends State<Homepage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            height: MediaQuery.of(context).size.height /3.5,
+            height: MediaQuery.of(context).size.height / 3.5,
             alignment: Alignment.topCenter,
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -40,20 +40,32 @@ class _HomepageState extends State<Homepage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'IMAGISEA',
-                          style: GoogleFonts.montserrat(
-                            textStyle: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 3,
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.menu,
+                            color: Colors.white,
+                            size: 40,
+                          ),
+                        ),
+                        const Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Text(
+                            'IMAGISEA',
+                            style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 3,
+                              ),
                             ),
                           ),
                         ),
                         const Spacer(),
                         CircleAvatar(
-                          radius: 30.0,
+                          radius: 25.0,
                           child: Image.asset('images/imagisea1.png'),
                         )
                       ],
@@ -112,6 +124,43 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 18,
+              left: 8,
+              right: 8,
+              bottom: 8,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Aspect Ratio:',
+                  style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // ListView(
+          //   scrollDirection: Axis.horizontal,
+          //   children: const [
+          //     Card(child: Text('1:1'),),
+          //     Card(child: Text('2:3'),),
+          //     Card(child: Text('3:2'),)
+          //   ],
+          // ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -148,12 +197,45 @@ class _HomepageState extends State<Homepage> {
                   onTap: null,
                   child: Row(
                     children: const [
-                      Text('See All'),
+                      Text('View All'),
                       Icon(Icons.arrow_right),
                     ],
                   ),
                 ),
               ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.08,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.black),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                child: const Text(
+                  'Create Art',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ),
+          const Center(
+            child: Text(
+              'Selected Style : None',
+              style: TextStyle(
+                color: Colors.grey,
+              ),
             ),
           ),
         ],
