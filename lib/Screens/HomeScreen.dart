@@ -16,9 +16,9 @@ class _HomepageState extends State<Homepage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Flexible(
+            fit: FlexFit.tight,
             child: Container(
               alignment: Alignment.topCenter,
-              // height: 350,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -57,22 +57,48 @@ class _HomepageState extends State<Homepage> {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 50,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Flexible(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(40)),
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: "Enter your search query",
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(40)),
+                      ),
+                      child: Column(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: TextField(
+                              maxLines: 2,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintMaxLines: 2,
+                              ),
                             ),
                           ),
-                        ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              IconButton(
+                                onPressed: null,
+                                icon: Icon(
+                                  Icons.restart_alt_sharp,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: null,
+                                icon: Icon(
+                                  Icons.close,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -80,7 +106,7 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
           ),
-          Flexible(child: Container()),
+          Flexible(flex: 2, child: Container()),
         ],
       ),
     );
