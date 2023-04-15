@@ -20,12 +20,12 @@ class _HomepageState extends State<Homepage> {
     'two-three',
     'three-two',
   ];
-
   String? cardGroupResult;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -101,10 +101,11 @@ class _HomepageState extends State<Homepage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                               Padding(
+                              Padding(
                                 padding: const EdgeInsets.only(
                                   top: 30,
-                                  left: 10,right: 10,
+                                  left: 10,
+                                  right: 10,
                                 ),
                                 child: TextField(
                                   maxLines: 4,
@@ -114,7 +115,7 @@ class _HomepageState extends State<Homepage> {
                                     hintText: 'Go Crazy on your imagination! '
                                         '\nAnything•Everything You want',
                                     hintStyle: GoogleFonts.montserrat(
-                                      textStyle:  TextStyle(
+                                      textStyle: TextStyle(
                                         color: Colors.grey.shade400,
                                         fontSize: 20,
                                         fontWeight: FontWeight.w200,
@@ -124,7 +125,8 @@ class _HomepageState extends State<Homepage> {
                                 ),
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: const [
                                   IconButton(
                                     onPressed: null,
@@ -178,8 +180,7 @@ class _HomepageState extends State<Homepage> {
                       titles: titles,
                       ids: id,
                       cardBackgroundColor: Colors.grey.shade100,
-                      titleTextColor: Colors.blue.shade700,
-                      onTap: (title, id) {
+                      titleTextColor: Colors.blue.shade700, onTap: (title, id) {
                     debugPrint(title);
                     debugPrint(id);
                     setState(() {
@@ -272,13 +273,13 @@ class _HomepageState extends State<Homepage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            // Divider(
-            //   height: 10,
-            //   thickness: 1,
-            //   indent: 20,
-            //   endIndent: 30,
-            //   color: Colors.blue.shade900,
-            // ),
+            Divider(
+              height: 10,
+              thickness: 1.5,
+              indent: 20,
+              endIndent: 30,
+              color: Colors.blue.shade700,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -305,20 +306,199 @@ class _HomepageState extends State<Homepage> {
                 ],
               ),
             ),
-            // SizedBox.expand(
-            //   child: ListView.builder(
-            //     scrollDirection: Axis.vertical,
-            //     itemCount: 5,
-            //     itemBuilder: (context, index) {
-            //       return SizedBox(
-            //         width: MediaQuery.of(context).size.width * .5,
-            //         child: const ListTile(
-            //           title: Text("Test"),
-            //         ),
-            //       );
-            //     },
-            //   ),
-            // ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(40)),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            "images/mario.png",
+                          ),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Text(
+                              "Super Mario riding a scooter with a city background, unreal...",
+                              style: GoogleFonts.montserrat(
+                                fontSize: 30,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                          const Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SizedBox(
+                              height: 50,
+                              width: 90,
+                              child: ElevatedButton(
+                                onPressed: null,
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all(Colors.black),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(25.0),
+                                    ),
+                                  ),
+                                ),
+                                child: Text(
+                                  'Try',
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(40)),
+                          image: DecorationImage(
+                            image: AssetImage("images/darthvader.png"),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Text(
+                                "Darth vader is a bride in white gown and holding red rose...",
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 30,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ),
+                            const Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(
+                                height: 50,
+                                width: 90,
+                                child: ElevatedButton(
+                                  onPressed: null,
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all(Colors.black),
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(25.0),
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Try',
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(40)),
+                          image: DecorationImage(
+                            image: AssetImage("images/robot.png"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Text(
+                                "Van Gogh styled sad robot",
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 30,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ),
+                            const Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(
+                                height: 50,
+                                width: 90,
+                                child: ElevatedButton(
+                                  onPressed: null,
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all(Colors.black),
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(25.0),
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Try',
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
