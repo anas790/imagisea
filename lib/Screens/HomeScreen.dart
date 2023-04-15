@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:select_card/select_card.dart';
 
@@ -42,6 +41,70 @@ class _HomepageState extends State<Homepage> {
 
   String filter = 'None';
   String? cardGroupResult;
+  var _controller = TextEditingController();
+
+  void _openDrawer(BuildContext context) {
+    showModalBottomSheet(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(55.0),
+          topRight: Radius.circular(55.0),
+        ),
+      ),
+      backgroundColor: Colors.white,
+      context: context,
+      builder: (BuildContext context) {
+        return Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: SizedBox(
+            height: 200,
+            child: ListView(
+              children: [
+                Text(
+                  'Profile',
+                  style: GoogleFonts.montserrat(
+                    color: Colors.blue.shade200,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    'Edit Profile Picture',
+                    style: GoogleFonts.montserrat(
+                      color: Colors.blue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    'Copy Profile Link',
+                    style: GoogleFonts.montserrat(
+                      color: Colors.blue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    'Logout',
+                    style: GoogleFonts.montserrat(
+                      color: Colors.blue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -50,84 +113,103 @@ class _HomepageState extends State<Homepage> {
       key: _scaffoldKey,
       resizeToAvoidBottomInset: false,
       drawer: Drawer(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width * 0.5,
-          child: ListView(
-            children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.blue.shade900,
-                      Colors.blue,
-                    ],
-                  ),
-                ),
-                child: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white54,
-                          radius: 50.0,
-                          child: CircleAvatar(
-                            radius: 45.0,
-                            child: Image.asset('images/imagisea1.png'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: ListView(
+                children: <Widget>[
+                  DrawerHeader(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.blue.shade900,
+                          Colors.blue,
+                        ],
+                      ),
+                    ),
+                    child: Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white54,
+                              radius: 50.0,
+                              child: CircleAvatar(
+                                radius: 45.0,
+                                child: Image.asset('images/imagisea1.png'),
+                              ),
+                            ),
                           ),
-                        ),
+                          Text("User Name",
+                              style: GoogleFonts.montserrat(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              )),
+                          Text(
+                            "UserId: kjbdofnapfmlbjfownfp7645998u0u",
+                            style: GoogleFonts.montserrat(
+                              color: Colors.white60,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            maxLines: 1,
+                          ),
+                        ],
                       ),
-                      Text("User Name",
-                          style: GoogleFonts.montserrat(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          )),
-                      Text(
-                        "UserId: kjbdofnapfmlbjfownfp7645998u0u",
-                        style: GoogleFonts.montserrat(
-                          color: Colors.white60,
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                        ),
-                        maxLines: 1,
+                    ),
+                  ),
+                  ListTile(
+                    subtitle: Text("View/update your wallet balance.",
+                        style: GoogleFonts.montserrat(color: Colors.grey)),
+                    title: Text(
+                      "Wallet",
+                      style: GoogleFonts.montserrat(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
                       ),
-                    ],
+                    ),
+                    onTap: () {
+                      //Navigate to wallet Screen
+                    },
                   ),
-                ),
-              ),
-              ListTile(
-                title: Text(
-                  "Wallet",
-                  style: GoogleFonts.montserrat(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
+                  ListTile(
+                    subtitle: Text("View your owned NFTs.",
+                        style: GoogleFonts.montserrat(color: Colors.grey)),
+                    title: Text(
+                      "Portfolio",
+                      style: GoogleFonts.montserrat(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    onTap: () {
+                      //Navigate to portfolio Screen
+                    },
                   ),
-                ),
-                onTap: () {
-                  // TODO: Handle drawer item tap
-                },
-              ),
-              ListTile(
-                title: Text(
-                  "Portfolio",
-                  style: GoogleFonts.montserrat(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
+                  ListTile(
+                    leading: const Icon(
+                      Icons.share,
+                      color: Colors.grey,
+                    ),
+                    title: Text(
+                      "Share App Link With Friends",
+                      style: GoogleFonts.montserrat(color: Colors.grey),
+                    ),
                   ),
-                ),
-                onTap: () {
-                  // TODO: Handle drawer item tap
-                },
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       body: SingleChildScrollView(
@@ -182,9 +264,14 @@ class _HomepageState extends State<Homepage> {
                             ),
                           ),
                           const Spacer(),
-                          CircleAvatar(
-                            radius: 25.0,
-                            child: Image.asset('images/imagisea1.png'),
+                          GestureDetector(
+                            onTap: () {
+                              _openDrawer(context);
+                            },
+                            child: CircleAvatar(
+                              radius: 25.0,
+                              child: Image.asset('images/imagisea1.png'),
+                            ),
                           )
                         ],
                       ),
@@ -211,6 +298,7 @@ class _HomepageState extends State<Homepage> {
                                   right: 10,
                                 ),
                                 child: TextField(
+                                  controller: _controller,
                                   maxLines: 4,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
@@ -230,17 +318,21 @@ class _HomepageState extends State<Homepage> {
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: const [
-                                  IconButton(
-                                    onPressed: null,
-                                    icon: Icon(
+                                children:  [
+                                   IconButton(
+                                    onPressed: (){
+                                      _controller.clear();
+                                    },
+                                    icon: const Icon(
                                       Icons.restart_alt_sharp,
                                       color: Colors.black,
                                     ),
                                   ),
                                   IconButton(
-                                    onPressed: null,
-                                    icon: Icon(
+                                    onPressed: (){
+                                      FocusScope.of(context).unfocus();
+                                    },
+                                    icon: const Icon(
                                       Icons.close,
                                       color: Colors.black,
                                     ),
