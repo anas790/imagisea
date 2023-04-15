@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:select_card/select_card.dart';
 
@@ -22,21 +23,113 @@ class _HomepageState extends State<Homepage> {
   ];
 
   List<String> styles = <String>[
-    'Unreal', 'Mystic', 'Artistic', 'Anime', 'Oil Pastel', 'Authentic'
+    'Unreal',
+    'Mystic',
+    'Artistic',
+    'Anime',
+    'Oil Pastel',
+    'Authentic'
   ];
 
   List<String> stylesId = <String>[
-    'Unreal', 'Mystic', 'Artistic', 'Anime', 'Oil Pastel', 'Authentic'
+    'Unreal',
+    'Mystic',
+    'Artistic',
+    'Anime',
+    'Oil Pastel',
+    'Authentic'
   ];
 
   String filter = 'None';
   String? cardGroupResult;
 
-
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       resizeToAvoidBottomInset: false,
+      drawer: Drawer(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width * 0.5,
+          child: ListView(
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.blue.shade900,
+                      Colors.blue,
+                    ],
+                  ),
+                ),
+                child: Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: CircleAvatar(
+                          backgroundColor: Colors.white54,
+                          radius: 50.0,
+                          child: CircleAvatar(
+                            radius: 45.0,
+                            child: Image.asset('images/imagisea1.png'),
+                          ),
+                        ),
+                      ),
+                      Text("User Name",
+                          style: GoogleFonts.montserrat(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          )),
+                      Text(
+                        "UserId: kjbdofnapfmlbjfownfp7645998u0u",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.white60,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        maxLines: 1,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  "Wallet",
+                  style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                onTap: () {
+                  // TODO: Handle drawer item tap
+                },
+              ),
+              ListTile(
+                title: Text(
+                  "Portfolio",
+                  style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                onTap: () {
+                  // TODO: Handle drawer item tap
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -66,26 +159,25 @@ class _HomepageState extends State<Homepage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(
+                          IconButton(
+                            onPressed: () {
+                              _scaffoldKey.currentState!.openDrawer();
+                            },
+                            icon: const Icon(
                               Icons.menu,
                               color: Colors.white,
-                              size: 40,
+                              size: 25,
                             ),
                           ),
                           const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Text(
-                              'IMAGISEA',
-                              style: GoogleFonts.montserrat(
-                                textStyle: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 3,
-                                ),
+                          Text(
+                            'IMAGISEA',
+                            style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 3,
                               ),
                             ),
                           ),
@@ -242,7 +334,8 @@ class _HomepageState extends State<Homepage> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title:  Text("Choose a valid style",
+                            title: Text(
+                              "Choose a valid style",
                               style: GoogleFonts.montserrat(
                                 textStyle: const TextStyle(
                                   color: Colors.black,
@@ -255,13 +348,14 @@ class _HomepageState extends State<Homepage> {
                                 titles: styles,
                                 ids: stylesId,
                                 cardBackgroundColor: Colors.grey.shade100,
-                                titleTextColor: Colors.blue.shade700, onTap: (title, id) {
-                                  debugPrint(title);
-                                  debugPrint(id);
-                                  setState(() {
-                                    filter =  id;
-                                  });
-                                }),
+                                titleTextColor: Colors.blue.shade700,
+                                onTap: (title, id) {
+                              debugPrint(title);
+                              debugPrint(id);
+                              setState(() {
+                                filter = id;
+                              });
+                            }),
                             actions: [
                               TextButton(
                                 onPressed: () {
@@ -309,10 +403,10 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
             ),
-             Center(
+            Center(
               child: Text(
-                "Selected Style : $filter" ,
-                style:const  TextStyle(
+                "Selected Style : $filter",
+                style: const TextStyle(
                   color: Colors.grey,
                 ),
               ),
