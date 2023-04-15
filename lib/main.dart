@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Imagisea',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -117,28 +118,18 @@ class _MyHomePageState extends State<MyHomePage> {
                         decoration: InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
-
                           border: OutlineInputBorder(
-
                           ),
                           hintText: 'Alien Mechanical World',
                         ),
                       ),
                     ),
-
                   ],
                 ),
-
-
-              )
-
+              ),
             ),
-
-
           ],
-
         ),
-
       ),
     );
   }
