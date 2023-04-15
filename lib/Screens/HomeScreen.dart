@@ -31,7 +31,7 @@ class _HomepageState extends State<Homepage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height / 3.5,
+              height: MediaQuery.of(context).size.height / 3,
               alignment: Alignment.topCenter,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -47,10 +47,10 @@ class _HomepageState extends State<Homepage> {
                   bottomLeft: Radius.circular(30),
                 ),
               ),
-              child: Column(
-                children: [
-                  SafeArea(
-                    child: Flexible(
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    Flexible(
                       flex: 1,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -86,57 +86,69 @@ class _HomepageState extends State<Homepage> {
                         ],
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height / 50,
-                  ),
-                  Flexible(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(40)),
-                        ),
-                        child: Column(
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: TextField(
-                                maxLines: 1,
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintMaxLines: 1,
-                                  hintText: 'Go Crazy on your imagination!',
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 50,
+                    ),
+                    Flexible(
+                      flex: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                               Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 30,
+                                  left: 10,right: 10,
+                                ),
+                                child: TextField(
+                                  maxLines: 4,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintMaxLines: 2,
+                                    hintText: 'Go Crazy on your imagination! '
+                                        '\nAnything•Everything You want',
+                                    hintStyle: GoogleFonts.montserrat(
+                                      textStyle:  TextStyle(
+                                        color: Colors.grey.shade400,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w200,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                IconButton(
-                                  onPressed: null,
-                                  icon: Icon(
-                                    Icons.restart_alt_sharp,
-                                    color: Colors.black,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  IconButton(
+                                    onPressed: null,
+                                    icon: Icon(
+                                      Icons.restart_alt_sharp,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                                IconButton(
-                                  onPressed: null,
-                                  icon: Icon(
-                                    Icons.close,
-                                    color: Colors.black,
+                                  IconButton(
+                                    onPressed: null,
+                                    icon: Icon(
+                                      Icons.close,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -166,6 +178,7 @@ class _HomepageState extends State<Homepage> {
                       titles: titles,
                       ids: id,
                       cardBackgroundColor: Colors.grey.shade100,
+                      titleTextColor: Colors.blue.shade700,
                       onTap: (title, id) {
                     debugPrint(title);
                     debugPrint(id);
@@ -268,17 +281,44 @@ class _HomepageState extends State<Homepage> {
             // ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'For Inspiration:',
-                style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
+              child: Row(
+                children: [
+                  Text(
+                    'For ',
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
+                      ),
+                    ),
                   ),
-                ),
+                  Text(
+                    'Inspiration:',
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
+            // SizedBox.expand(
+            //   child: ListView.builder(
+            //     scrollDirection: Axis.vertical,
+            //     itemCount: 5,
+            //     itemBuilder: (context, index) {
+            //       return SizedBox(
+            //         width: MediaQuery.of(context).size.width * .5,
+            //         child: const ListTile(
+            //           title: Text("Test"),
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
