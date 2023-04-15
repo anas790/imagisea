@@ -244,6 +244,7 @@ class _HomepageState extends State<Homepage> {
                           IconButton(
                             onPressed: () {
                               _scaffoldKey.currentState!.openDrawer();
+                              Focus.of(context).unfocus();
                             },
                             icon: const Icon(
                               Icons.menu,
@@ -298,6 +299,7 @@ class _HomepageState extends State<Homepage> {
                                   right: 10,
                                 ),
                                 child: TextField(
+                                  autofocus: false,
                                   controller: _controller,
                                   maxLines: 4,
                                   decoration: InputDecoration(
