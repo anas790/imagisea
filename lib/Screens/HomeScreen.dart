@@ -20,7 +20,18 @@ class _HomepageState extends State<Homepage> {
     'two-three',
     'three-two',
   ];
+
+  List<String> styles = <String>[
+    'Unreal', 'Mystic', 'Artistic', 'Anime', 'Oil Pastel', 'Authentic'
+  ];
+
+  List<String> stylesId = <String>[
+    'Unreal', 'Mystic', 'Artistic', 'Anime', 'Oil Pastel', 'Authentic'
+  ];
+
+  String filter = 'None';
   String? cardGroupResult;
+
 
   @override
   Widget build(BuildContext context) {
@@ -226,10 +237,46 @@ class _HomepageState extends State<Homepage> {
                   ),
                   const Spacer(),
                   GestureDetector(
-                    onTap: null,
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title:  Text("Choose a valid style",
+                              style: GoogleFonts.montserrat(
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            content: SelectGroupCard(context,
+                                titles: styles,
+                                ids: stylesId,
+                                cardBackgroundColor: Colors.grey.shade100,
+                                titleTextColor: Colors.blue.shade700, onTap: (title, id) {
+                                  debugPrint(title);
+                                  debugPrint(id);
+                                  setState(() {
+                                    filter =  id;
+                                  });
+                                }),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text("Close"),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
                     child: Row(
                       children: const [
-                        Text('View All'),
+                        Text('Show All'),
                         Icon(Icons.arrow_right),
                       ],
                     ),
@@ -262,10 +309,10 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
             ),
-            const Center(
+             Center(
               child: Text(
-                'Selected Style : None',
-                style: TextStyle(
+                "Selected Style : $filter" ,
+                style:const  TextStyle(
                   color: Colors.grey,
                 ),
               ),
