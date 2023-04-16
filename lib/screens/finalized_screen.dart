@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../Widgets/sideDrawer.dart';
+
 class Finalized_screen extends StatefulWidget {
   const Finalized_screen({Key? key}) : super(key: key);
 
@@ -8,96 +10,70 @@ class Finalized_screen extends StatefulWidget {
   State<Finalized_screen> createState() => _Finalized_screenState();
 }
 
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
 class _Finalized_screenState extends State<Finalized_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const SideDrawer(),
+      key: _scaffoldKey,
       resizeToAvoidBottomInset: false,
       body: Column(
         children: [
-          Flexible(
-            flex: 2,
-            child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(55),
-                    bottomRight: Radius.circular(55),
-                  ),
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      Colors.blue.shade900,
-                      Colors.blue.shade500,
-                    ],
-                  ),
+          Container(
+              height: MediaQuery.of(context).size.height * 0.15,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(55),
+                  bottomRight: Radius.circular(55),
                 ),
-                child: SafeArea(
-                  child: Column(
-                    children: [
-                      Row(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.blue.shade900,
+                    Colors.blue.shade500,
+                  ],
+                ),
+              ),
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0, vertical: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 8.0, top: 20),
-                            child: Align(
-                              alignment: Alignment.topLeft,
-                              child: Icon(
-                                Icons.menu,
-                                color: Colors.white,
-                                size: 35,
-                              ),
+                          IconButton(
+                            onPressed: () {
+                              _scaffoldKey.currentState!.openDrawer();
+                            },
+                            icon: const Icon(
+                              Icons.menu,
+                              color: Colors.white,
+                              size: 25,
                             ),
                           ),
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0, top: 20),
-                            child: Align(
-                              alignment: Alignment.topRight,
-                              child: SizedBox(
-                                width: 40.0,
-                                height: 40.0,
-                                child: Image.asset(
-                                  'images/imagisea1.png',
-                                ),
-                              ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.1,
+                          ),
+                          Text(
+                            'IMAGISEA',
+                            style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],
                       ),
-                      Text('IMAGISEA',
-                          style: GoogleFonts.montserrat(
-                              textStyle: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.bold))),
-                      const Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 50.0),
-                          child: SizedBox(
-                            height: 45,
-                            width: 350,
-                            child: TextField(
-                              keyboardType: TextInputType.text,
-                              style: TextStyle(
-                                fontSize: 15.0,
-                              ),
-                              decoration: InputDecoration(
-                                fillColor: Colors.white,
-                                filled: true,
-                                hintText: 'Alien Mechanical World',
-                                border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
-          ),
+                    ),
+                  ],
+                ),
+              ),),
           Flexible(
               flex: 4,
               child: Container(
@@ -107,18 +83,24 @@ class _Finalized_screenState extends State<Finalized_screen> {
                       Padding(
                         padding: const EdgeInsets.only(top: 30.0),
                         child: Container(
-                          decoration: BoxDecoration(boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.9),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: const Offset(0, 4),
-                            )
-                          ]),
-                          child: Image.asset(
-                            'images/img2.png',
-                            width: 350,
-                          ),
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          height: 250,
+                          decoration: BoxDecoration(
+                              image: const DecorationImage(
+                                image: AssetImage(
+                                    'images/img2.png'
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              borderRadius: const BorderRadius.all(Radius.circular(20)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.9),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 4),
+                                )
+                              ]),
                         ),
                       ),
                       SizedBox(

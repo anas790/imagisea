@@ -5,6 +5,8 @@ import 'package:imagisea/Widgets/sideDrawer.dart';
 import 'package:imagisea/screens/generate_screen.dart';
 import 'package:select_card/select_card.dart';
 
+import '../Widgets/InspirationCard.dart';
+
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
 
@@ -434,187 +436,11 @@ class _HomepageState extends State<Homepage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(40)),
-                        image: DecorationImage(
-                          image: AssetImage(
-                            "images/mario.png",
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 10.0),
-                            child: Text(
-                              "Super Mario riding a scooter with a city background, unreal...",
-                              style: GoogleFonts.montserrat(
-                                fontSize: 30,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w300,
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              height: 50,
-                              width: 90,
-                              child: ElevatedButton(
-                                onPressed: null,
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all(Colors.black),
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25.0),
-                                    ),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Try',
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        height: MediaQuery.of(context).size.height * 0.3,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(40)),
-                          image: DecorationImage(
-                            image: AssetImage("images/darthvader.png"),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10.0),
-                              child: Text(
-                                "Darth vader is a bride in white gown and holding red rose...",
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 30,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: SizedBox(
-                                height: 50,
-                                width: 90,
-                                child: ElevatedButton(
-                                  onPressed: null,
-                                  style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all(Colors.black),
-                                    shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(25.0),
-                                      ),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    'Try',
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 20,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        height: MediaQuery.of(context).size.height * 0.3,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(40)),
-                          image: DecorationImage(
-                            image: AssetImage("images/robot.png"),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10.0),
-                              child: Text(
-                                "Van Gogh styled sad robot",
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 30,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: SizedBox(
-                                height: 50,
-                                width: 90,
-                                child: ElevatedButton(
-                                  onPressed: null,
-                                  style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all(Colors.black),
-                                    shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(25.0),
-                                      ),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    'Try',
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 20,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    InspirationCard(image: "images/mario.png",prompt: "Super Mario riding a scooter with a city background, unreal..."),
+                    const Spacer(),
+                    InspirationCard(image: "images/darthvader.png", prompt: "Darth vader is a bride in white gown and holding red rose..."),
+                    const Spacer(),
+                    InspirationCard(image: "images/robot.png", prompt: "Van Gogh styled sad robot"),
                   ],
                 ),
               ),

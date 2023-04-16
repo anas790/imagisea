@@ -45,7 +45,7 @@ class BottomDrawer extends StatelessWidget {
                 );
               },
               title: Text(
-                'Profile Picture',
+                'Profile Details',
                 style: GoogleFonts.montserrat(
                   color: Colors.blue,
                   fontSize: 20,

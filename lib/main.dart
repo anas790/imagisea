@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:imagisea/screens/loading_screen.dart';
-import 'package:imagisea/Screens/HomeScreen.dart';
-import 'package:imagisea/Screens/finalized_screen.dart';
-import 'package:imagisea/Screens/generate_screen.dart';
-import 'package:imagisea/Screens/profile_screen.dart';
+import 'package:imagisea/Screens/loading_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: const Loading_screen(),
-      home: const Finalized_screen(),
+      home: const Loading_screen(),
     );
   }
 }
