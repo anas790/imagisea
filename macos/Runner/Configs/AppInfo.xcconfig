@@ -8,7 +8,7 @@
 PRODUCT_NAME = imagisea
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.imagisea
+PRODUCT_BUNDLE_IDENTIFIER = com.crested.imagisea
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2023 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 com.crested. All rights reserved.

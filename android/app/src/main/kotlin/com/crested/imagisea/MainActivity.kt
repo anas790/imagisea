@@ -1,4 +1,4 @@
-package com.example.imagisea
+package com.crested.imagisea
 
 import io.flutter.embedding.android.FlutterActivity
 
