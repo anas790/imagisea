@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:imagisea/Widgets/bottomDrawer.dart';
+import 'package:imagisea/Widgets/sideDrawer.dart';
 import 'package:imagisea/screens/generate_screen.dart';
 import 'package:select_card/select_card.dart';
 
@@ -42,7 +44,7 @@ class _HomepageState extends State<Homepage> {
 
   String filter = 'None';
   String cardGroupResult = "";
-  var _controller = TextEditingController();
+  final _controller = TextEditingController();
 
   void _openDrawer(BuildContext context) {
     showModalBottomSheet(
@@ -55,54 +57,7 @@ class _HomepageState extends State<Homepage> {
       backgroundColor: Colors.white,
       context: context,
       builder: (BuildContext context) {
-        return Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: SizedBox(
-            height: 200,
-            child: ListView(
-              children: [
-                Text(
-                  'Profile',
-                  style: GoogleFonts.montserrat(
-                    color: Colors.blue.shade200,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                ListTile(
-                  title: Text(
-                    'Edit Profile Picture',
-                    style: GoogleFonts.montserrat(
-                      color: Colors.blue,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                ListTile(
-                  title: Text(
-                    'Copy Profile Link',
-                    style: GoogleFonts.montserrat(
-                      color: Colors.blue,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                ListTile(
-                  title: Text(
-                    'Logout',
-                    style: GoogleFonts.montserrat(
-                      color: Colors.blue,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
+        return const BottomDrawer();
       },
     );
   }
@@ -113,106 +68,7 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       key: _scaffoldKey,
       resizeToAvoidBottomInset: false,
-      drawer: Drawer(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width * 0.5,
-              child: ListView(
-                children: <Widget>[
-                  DrawerHeader(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.blue.shade900,
-                          Colors.blue,
-                        ],
-                      ),
-                    ),
-                    child: Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: CircleAvatar(
-                              backgroundColor: Colors.white54,
-                              radius: 50.0,
-                              child: CircleAvatar(
-                                radius: 45.0,
-                                child: Image.asset('images/imagisea1.png'),
-                              ),
-                            ),
-                          ),
-                          Text("User Name",
-                              style: GoogleFonts.montserrat(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              )),
-                          Text(
-                            "UserId: kjbdofnapfmlbjfownfp7645998u0u",
-                            style: GoogleFonts.montserrat(
-                              color: Colors.white60,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400,
-                            ),
-                            maxLines: 1,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    subtitle: Text("View/update your wallet balance.",
-                        style: GoogleFonts.montserrat(color: Colors.grey)),
-                    title: Text(
-                      "Wallet",
-                      style: GoogleFonts.montserrat(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    onTap: () {
-                      //Navigate to wallet Screen
-                    },
-                  ),
-                  ListTile(
-                    subtitle: Text("View your owned NFTs.",
-                        style: GoogleFonts.montserrat(color: Colors.grey)),
-                    title: Text(
-                      "Portfolio",
-                      style: GoogleFonts.montserrat(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    onTap: () {
-                      //Navigate to portfolio Screen
-                    },
-                  ),
-                  ListTile(
-                    leading: const Icon(
-                      Icons.share,
-                      color: Colors.grey,
-                    ),
-                    title: Text(
-                      "Share App Link With Friends",
-                      style: GoogleFonts.montserrat(color: Colors.grey),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawer: const SideDrawer(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -245,7 +101,6 @@ class _HomepageState extends State<Homepage> {
                           IconButton(
                             onPressed: () {
                               _scaffoldKey.currentState!.openDrawer();
-                              // Focus.of(context).unfocus();
                             },
                             icon: const Icon(
                               Icons.menu,

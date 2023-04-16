@@ -38,40 +38,13 @@ class GradientText extends StatelessWidget {
 class LoginState extends State<Login> {
   final countryPicker = const FlCountryCodePicker();
   CountryCode? countryCode =
-      CountryCode(name: 'India', code: 'IN', dialCode: '+91');
+      const CountryCode(name: 'India', code: 'IN', dialCode: '+91');
   final TextEditingController phoneNumberController = TextEditingController();
   final _pinPutController = TextEditingController();
   static const String routeName = '/material/modal-bottom-sheet';
   bool wait = false;
   int start = 30;
-  // String textName = 'VERIFY';
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   startTimer();
-  // }
-  //
-  // void startTimer() {
-  //   const onsec = Duration(seconds: 1);
-  //   _timer = Timer.periodic(
-  //     onsec,
-  //     (timer) => setState(() {
-  //       if (start < 1) {
-  //         timer.cancel();
-  //       } else {
-  //         start = start--;
-  //       }
-  //     }),
-  //   );
-  // }
-  //
-  // void resetTimer() {
-  //   setState(() {
-  //     start = 60;
-  //   });
-  //   startTimer();
-  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,7 +110,6 @@ class LoginState extends State<Login> {
                                     context: context);
                                 setState(() {
                                   countryCode = code;
-                                  print(countryCode);
                                 });
                               },
                               child: Row(

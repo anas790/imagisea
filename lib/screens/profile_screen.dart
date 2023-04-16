@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:crypto_font_icons/crypto_font_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:imagisea/Widgets/Buttons.dart';
+import 'package:imagisea/Widgets/profileCard.dart';
+import 'package:imagisea/Widgets/sideDrawer.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({Key? key}) : super(key: key);
@@ -9,13 +12,16 @@ class MyProfile extends StatefulWidget {
   State<MyProfile> createState() => _MyProfileState();
 }
 
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
 class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'my profile',
       home: Scaffold(
-        backgroundColor: Colors.grey.shade200,
+        key: _scaffoldKey,
+        backgroundColor: Colors.grey.shade100,
+        drawer: const SideDrawer(),
         body: Center(
           child: Column(
             children: [
@@ -41,12 +47,7 @@ class _MyProfileState extends State<MyProfile> {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        IconButton(
-                          icon: const Icon(Icons.menu_rounded),
-                          color: Colors.white,
-                          iconSize: 30,
-                          onPressed: () {},
-                        ),
+                        MenuButton(scaffoldKey: _scaffoldKey),
                         Padding(
                           padding: const EdgeInsets.only(right: 25.0),
                           child: ElevatedButton(
@@ -111,7 +112,7 @@ class _MyProfileState extends State<MyProfile> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Nemoart',
+                            'UserName',
                             style: GoogleFonts.montserrat(
                               fontSize: 20,
                             ),
@@ -120,7 +121,7 @@ class _MyProfileState extends State<MyProfile> {
                             height: 5,
                           ),
                           Text(
-                            '03xxg38idhhhgf0mf....',
+                            'kjbdofnapfmlbjfownfp7645998u0u',
                             style: GoogleFonts.montserrat(
                               color: Colors.grey,
                               fontWeight: FontWeight.bold,
@@ -140,6 +141,7 @@ class _MyProfileState extends State<MyProfile> {
                 padding: const EdgeInsets.all(12.0),
                 child: ElevatedButton(
                   style: ButtonStyle(
+                    elevation: MaterialStateProperty.all(7.0),
                     backgroundColor: MaterialStateProperty.all(Colors.black),
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0))),
@@ -177,163 +179,23 @@ class _MyProfileState extends State<MyProfile> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 30.0, bottom: 20.0),
+                padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Flexible(
-                        flex: 1,
-                        child: Card(
-                          elevation: 0,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 30.0, right: 30, top: 20, bottom: 20),
-                            child: Column(
-                              children: const [
-                                Icon(Icons.image),
-                                Text(
-                                  'Item',
-                                  style: TextStyle(color: Colors.black),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Flexible(
-                        flex: 1,
-                        child: Card(
-                          elevation: 0,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 22, right: 22, top: 20, bottom: 20),
-                            child: Column(
-                              children: const [
-                                Icon(Icons.bar_chart),
-                                Text(
-                                  'Activity',
-                                  style: TextStyle(color: Colors.black),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Flexible(
-                        flex: 1,
-                        child: Card(
-                          elevation: 0,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16.0, right: 16, top: 20, bottom: 20),
-                            child: Column(
-                              children: const [
-                                Icon(Icons.people),
-                                Text(
-                                  'Followers',
-                                  style: TextStyle(color: Colors.black),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    ProfileCard(icon: Icons.image,title: 'Item',),
+                    ProfileCard(icon: Icons.bar_chart, title: 'Activity'),
+                    ProfileCard(icon: Icons.people, title: 'Followers'),
                   ],
                 ),
               ),
-              Padding(
+               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: const BorderSide(color: Colors.grey)),
-                    ),
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.grey.shade200),
-                  ),
-                  onPressed: null,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(10.0)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.person_outline_sharp,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10.0,
-                        ),
-                        const Text(
-                          'Edit Profile',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        const Spacer(),
-                        const Icon(Icons.keyboard_arrow_right,
-                            color: Colors.black),
-                      ],
-                    ),
-                  ),
-                ),
+                child: ActivityButton(title: 'Edit Profile', icon: Icons.person,),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: const BorderSide(color: Colors.grey)),
-                    ),
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.grey.shade200),
-                  ),
-                  onPressed: null,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(10.0)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.library_books_sharp,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10.0,
-                        ),
-                        const Text(
-                          'Activity',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        const Spacer(),
-                        const Icon(Icons.keyboard_arrow_right,
-                            color: Colors.black),
-                      ],
-                    ),
-                  ),
-                ),
+                child: ActivityButton(icon: Icons.library_books_outlined, title: 'Activity'),
               ),
               const SizedBox(
                 height: 15.0,
@@ -353,90 +215,14 @@ class _MyProfileState extends State<MyProfile> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: const BorderSide(color: Colors.white)),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                  ),
-                  onPressed: null,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              "🌈",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10.0,
-                        ),
-                        const Text(
-                          'Rainbow Stars',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        const Spacer(),
-                        const Icon(Icons.keyboard_arrow_right,
-                            color: Colors.black),
-                      ],
-                    ),
-                  ),
-                ),
+                child: CollectionButton(title: 'Rainbow Stars', specialCharacter: '🌈'),
               ),
               const SizedBox(
                 height: 10.0,
               ),
-              Padding(
+               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: const BorderSide(color: Colors.white)),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                  ),
-                  onPressed: null,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              '🍒',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10.0,
-                        ),
-                        const Text(
-                          'Cherry Wall',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        const Spacer(),
-                        const Icon(Icons.keyboard_arrow_right,
-                            color: Colors.black),
-                      ],
-                    ),
-                  ),
-                ),
+                child: CollectionButton(specialCharacter: '🍒',title: 'Cherry Wall',),
               ),
             ],
           ),
@@ -445,3 +231,9 @@ class _MyProfileState extends State<MyProfile> {
     );
   }
 }
+
+
+
+
+
+

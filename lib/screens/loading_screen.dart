@@ -82,9 +82,6 @@ class _Loading_screenState extends State<Loading_screen> {
             padding: const EdgeInsets.only(top: 130.0),
             child: LoadingAnimationWidget.prograssiveDots(color: Colors.blue, size: 80),
           ),
-           // LoadingAnimationWidget.horizontalRotatingDots(
-           //     color: Colors.blue.shade500,
-           //     size: 50),
 
            Text(
              'Loading Imagine Engine...',
