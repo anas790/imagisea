@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:imagisea/screens/HomeScreen.dart';
 import 'package:imagisea/screens/finalized_screen.dart';
 import 'package:imagisea/screens/login_screen.dart';
 
@@ -109,16 +110,14 @@ class _Generate_screenState extends State<Generate_screen> {
                       Padding(
                         padding: const EdgeInsets.only(top: 30.0),
                         child: Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.9),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: const Offset(0,4),
-                              )
-                            ]
-                          ),
+                          decoration: BoxDecoration(boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.9),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 4),
+                            )
+                          ]),
                           child: Image.asset(
                             'images/img2.png',
                             width: 300,
@@ -132,16 +131,14 @@ class _Generate_screenState extends State<Generate_screen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.7),
-                                    spreadRadius: 2,
-                                    blurRadius: 5,
-                                    offset: const Offset(0,4),
-                                  )
-                                ]
-                            ),
+                            decoration: BoxDecoration(boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.7),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: const Offset(0, 4),
+                              )
+                            ]),
                             child: Image.asset(
                               'images/img3.png',
                               width: 80,
@@ -150,27 +147,23 @@ class _Generate_screenState extends State<Generate_screen> {
                           Padding(
                             padding: const EdgeInsets.only(left: 20),
                             child: Container(
-                              decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.7),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: const Offset(0,4),
-                                    )
-                                  ]
-                              ),
+                              decoration: BoxDecoration(boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.7),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 4),
+                                )
+                              ]),
                               child: Container(
-                                decoration: BoxDecoration(
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.7),
-                                        spreadRadius: 2,
-                                        blurRadius: 5,
-                                        offset: const Offset(0,4),
-                                      )
-                                    ]
-                                ),
+                                decoration: BoxDecoration(boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.7),
+                                    spreadRadius: 2,
+                                    blurRadius: 5,
+                                    offset: const Offset(0, 4),
+                                  )
+                                ]),
                                 child: Image.asset(
                                   'images/img4.png',
                                   width: 77,
@@ -181,16 +174,14 @@ class _Generate_screenState extends State<Generate_screen> {
                           Padding(
                             padding: const EdgeInsets.only(left: 20),
                             child: Container(
-                              decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.7),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: const Offset(0,4),
-                                    )
-                                  ]
-                              ),
+                              decoration: BoxDecoration(boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.7),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 4),
+                                )
+                              ]),
                               child: Image.asset(
                                 'images/img5.png',
                                 width: 77,
@@ -202,9 +193,8 @@ class _Generate_screenState extends State<Generate_screen> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.06,
                       ),
-
                       Padding(
-                        padding: const EdgeInsets.only(left:45, right:45),
+                        padding: const EdgeInsets.only(left: 45, right: 45),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
@@ -219,25 +209,24 @@ class _Generate_screenState extends State<Generate_screen> {
                                               BorderRadius.circular(10.0),
                                           side: const BorderSide(
                                               color: Colors.grey)))),
-                                child: const Text(
-                                  'FINALIZE THE SELECTED IMAGE',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
+                              child: const Text(
+                                'FINALIZE THE SELECTED IMAGE',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
-                              onPressed: (){
+                              ),
+                              onPressed: () {
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const Finalized_screen()));
-
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Finalized_screen()));
                               },
-
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
-
                             ElevatedButton(
                               style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all(
@@ -249,7 +238,9 @@ class _Generate_screenState extends State<Generate_screen> {
                                               BorderRadius.circular(10.0),
                                           side: const BorderSide(
                                               color: Colors.grey)))),
-                              onPressed: null,
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
                               child: const Text(
                                 'REGENERATE',
                                 style: TextStyle(

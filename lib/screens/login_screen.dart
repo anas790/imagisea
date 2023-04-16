@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:imagisea/screens/HomeScreen.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -12,11 +13,11 @@ class Login extends StatefulWidget {
 
 class GradientText extends StatelessWidget {
   const GradientText(
-      this.text, {
-        super.key,
-        required this.gradient,
-        this.style,
-      });
+    this.text, {
+    super.key,
+    required this.gradient,
+    this.style,
+  });
 
   final String text;
   final TextStyle? style;
@@ -36,7 +37,8 @@ class GradientText extends StatelessWidget {
 
 class LoginState extends State<Login> {
   final countryPicker = const FlCountryCodePicker();
-  CountryCode? countryCode;
+  CountryCode? countryCode =
+      CountryCode(name: 'India', code: 'IN', dialCode: '+91');
   final TextEditingController phoneNumberController = TextEditingController();
   final _pinPutController = TextEditingController();
   static const String routeName = '/material/modal-bottom-sheet';
@@ -108,8 +110,8 @@ class LoginState extends State<Login> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      top: 50, left: 10.0, right: 10.0),
+                  padding:
+                      const EdgeInsets.only(top: 50, left: 10.0, right: 10.0),
                   child: TextFormField(
                     controller: phoneNumberController,
                     keyboardType: TextInputType.number,
@@ -135,6 +137,7 @@ class LoginState extends State<Login> {
                                     context: context);
                                 setState(() {
                                   countryCode = code;
+                                  print(countryCode);
                                 });
                               },
                               child: Row(
@@ -205,16 +208,18 @@ class LoginState extends State<Login> {
                             left: 140, top: 15, right: 140, bottom: 15),
                       ),
                       onPressed: () {
-                        if (countryCode != null) {
+                        if (countryCode != null &&
+                            phoneNumberController.text.trim().isNotEmpty &&
+                            phoneNumberController.text.trim().length == 10) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text(
-                                  '$countryCode!.dialCode)-${phoneNumberController
-                                      .text.trim()}')));
+                                  '$countryCode!.dialCode)-${phoneNumberController.text.trim()}')));
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content: Text(
-                                      'Please select a country code')));
+                                  content:
+                                      Text('Invalid Phone Number Entered')));
+                          return;
                         }
 
                         showModalBottomSheet(
@@ -270,7 +275,7 @@ class LoginState extends State<Login> {
                                     const Center(
                                       child: Text(
                                         'Please enter the OTP sent to your phone\n        '
-                                            '             number via SMS',
+                                        '             number via SMS',
                                         style: TextStyle(
                                           color: Colors.white60,
                                           fontWeight: FontWeight.bold,
@@ -278,7 +283,6 @@ class LoginState extends State<Login> {
                                         ),
                                       ),
                                     ),
-
                                     Padding(
                                       padding: const EdgeInsets.only(top: 50.0),
                                       child: OtpTextField(
@@ -298,16 +302,25 @@ class LoginState extends State<Login> {
                                         },
                                         //runs when every textfield is filled
                                         onSubmit: (String verificationCode) {
-                                          showDialog(
-                                              context: context,
-                                              builder: (context) {
-                                                return AlertDialog(
-                                                  title: const Text(
-                                                      "Verification Code"),
-                                                  content: Text(
-                                                      'Code entered is $verificationCode'),
-                                                );
-                                              });
+                                          if (verificationCode == '12345') {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Homepage()),
+                                            );
+                                          } else {
+                                            showDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                  return AlertDialog(
+                                                    title: const Text(
+                                                        "Invalid Verification Code"),
+                                                    content: Text(
+                                                        'Code entered is Invalid - $verificationCode'),
+                                                  );
+                                                });
+                                          }
                                         }, // end onSubmit
                                       ),
                                     ),
@@ -319,42 +332,39 @@ class LoginState extends State<Login> {
                                     Center(
                                       child: RichText(
                                           text: TextSpan(
-                                            children: [
-                                              const TextSpan(
-                                                text: 'You will get OTP by SMS in ',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.white),
-                                              ),
-                                              TextSpan(
-                                                text: '$start ',
-                                                style: const TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.orangeAccent),
-                                              ),
-                                              const TextSpan(
-                                                text: 'sec',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.white),
-                                              ),
-                                            ],
-                                          )),
+                                        children: [
+                                          const TextSpan(
+                                            text: 'You will get OTP by SMS in ',
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.white),
+                                          ),
+                                          TextSpan(
+                                            text: '$start ',
+                                            style: const TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.orangeAccent),
+                                          ),
+                                          const TextSpan(
+                                            text: 'sec',
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.white),
+                                          ),
+                                        ],
+                                      )),
                                     ),
-
-
                                     Padding(
                                       padding: const EdgeInsets.only(top: 50.0),
                                       child: OutlinedButton(
                                         onPressed: () {},
                                         style: OutlinedButton.styleFrom(
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                                10.0),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
                                           ),
                                           side: const BorderSide(
-                                              color: Colors.white,
-                                              width: 2),
+                                              color: Colors.white, width: 2),
                                         ),
                                         child: const Padding(
                                           padding: EdgeInsets.symmetric(
@@ -365,18 +375,15 @@ class LoginState extends State<Login> {
                                               color: Colors.white,
                                               fontSize: 22,
                                               fontWeight: FontWeight.bold,
-
                                             ),
                                           ),
                                         ),
                                       ),
                                     )
-
                                   ],
                                 ),
                               );
-                            }
-                        );
+                            });
                       },
                       child: const Text(
                         'GENERATE OTP',
@@ -390,4 +397,5 @@ class LoginState extends State<Login> {
             ),
           ),
         ));
-  }}
+  }
+}

@@ -64,8 +64,7 @@ class _Finalized_screenState extends State<Finalized_screen> {
                           ),
                         ],
                       ),
-                      Text(
-                          'IMAGISEA',
+                      Text('IMAGISEA',
                           style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                   color: Colors.white,
@@ -88,7 +87,7 @@ class _Finalized_screenState extends State<Finalized_screen> {
                                 hintText: 'Alien Mechanical World',
                                 border: OutlineInputBorder(
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(15)),
+                                      BorderRadius.all(Radius.circular(15)),
                                 ),
                               ),
                             ),
@@ -99,7 +98,6 @@ class _Finalized_screenState extends State<Finalized_screen> {
                   ),
                 )),
           ),
-
           Flexible(
               flex: 4,
               child: Container(
@@ -109,16 +107,14 @@ class _Finalized_screenState extends State<Finalized_screen> {
                       Padding(
                         padding: const EdgeInsets.only(top: 30.0),
                         child: Container(
-                          decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.9),
-                                  spreadRadius: 2,
-                                  blurRadius: 5,
-                                  offset: const Offset(0,4),
-                                )
-                              ]
-                          ),
+                          decoration: BoxDecoration(boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.9),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 4),
+                            )
+                          ]),
                           child: Image.asset(
                             'images/img2.png',
                             width: 350,
@@ -128,10 +124,9 @@ class _Finalized_screenState extends State<Finalized_screen> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.08,
                       ),
-
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(left:45, right:45),
+                          padding: const EdgeInsets.only(left: 45, right: 45),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
@@ -140,10 +135,10 @@ class _Finalized_screenState extends State<Finalized_screen> {
                                     backgroundColor: MaterialStateProperty.all(
                                         Colors.blue.shade700),
                                     shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
+                                            RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
                                             borderRadius:
-                                            BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10.0),
                                             side: const BorderSide(
                                                 color: Colors.grey)))),
                                 onPressed: null,
@@ -156,44 +151,42 @@ class _Finalized_screenState extends State<Finalized_screen> {
                                 ),
                               ),
                               SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.01,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.01,
                               ),
-
                               ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Colors.green.shade500),
-                                    shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                            borderRadius:
-                                            BorderRadius.circular(10.0),
-                                            side: const BorderSide(
-                                                color: Colors.grey)))),
-                                child: const Text(
-                                  'GENERATE NFT',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                  style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.grey.shade600),
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              side: const BorderSide(
+                                                  color: Colors.grey)))),
+                                  child: Text(
+                                    'GENERATE NFT',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey.shade300,
+                                    ),
                                   ),
-                                ),
-                                onPressed: (){
-                                  Navigator.pop(context);
-                                }
-                              ),
+                                  onPressed: null),
                               SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.01,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.01,
                               ),
-
                               ElevatedButton(
                                 style: ButtonStyle(
                                     backgroundColor: MaterialStateProperty.all(
                                         Colors.orange.shade500),
                                     shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
+                                            RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
                                             borderRadius:
-                                            BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10.0),
                                             side: const BorderSide(
                                                 color: Colors.grey)))),
                                 onPressed: null,
@@ -205,7 +198,6 @@ class _Finalized_screenState extends State<Finalized_screen> {
                                   ),
                                 ),
                               ),
-
                             ],
                           ),
                         ),

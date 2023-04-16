@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:imagisea/screens/generate_screen.dart';
 import 'package:select_card/select_card.dart';
 
 class Homepage extends StatefulWidget {
@@ -40,7 +41,7 @@ class _HomepageState extends State<Homepage> {
   ];
 
   String filter = 'None';
-  String? cardGroupResult;
+  String cardGroupResult = "";
   var _controller = TextEditingController();
 
   void _openDrawer(BuildContext context) {
@@ -244,7 +245,7 @@ class _HomepageState extends State<Homepage> {
                           IconButton(
                             onPressed: () {
                               _scaffoldKey.currentState!.openDrawer();
-                              Focus.of(context).unfocus();
+                              // Focus.of(context).unfocus();
                             },
                             icon: const Icon(
                               Icons.menu,
@@ -278,7 +279,7 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height / 50,
+                      height: MediaQuery.of(context).size.height / 60,
                     ),
                     Flexible(
                       flex: 4,
@@ -301,7 +302,7 @@ class _HomepageState extends State<Homepage> {
                                 child: TextField(
                                   autofocus: false,
                                   controller: _controller,
-                                  maxLines: 4,
+                                  maxLines: 3,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintMaxLines: 2,
@@ -320,9 +321,9 @@ class _HomepageState extends State<Homepage> {
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children:  [
-                                   IconButton(
-                                    onPressed: (){
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
                                       _controller.clear();
                                     },
                                     icon: const Icon(
@@ -331,7 +332,7 @@ class _HomepageState extends State<Homepage> {
                                     ),
                                   ),
                                   IconButton(
-                                    onPressed: (){
+                                    onPressed: () {
                                       FocusScope.of(context).unfocus();
                                     },
                                     icon: const Icon(
@@ -486,7 +487,36 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_controller.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Please enter some text'),
+                        ),
+                      );
+                    } else if (cardGroupResult.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Please select an aspect ratio'),
+                        ),
+                      );
+                    } else if (filter.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Please select a style'),
+                        ),
+                      );
+                    } else if (_controller.text.isNotEmpty &&
+                        cardGroupResult.isNotEmpty &&
+                        filter.isNotEmpty) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Generate_screen(),
+                        ),
+                      );
+                    }
+                  },
                   child: const Text(
                     'Create Art',
                     style: TextStyle(
