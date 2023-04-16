@@ -166,14 +166,14 @@ class _Finalized_screenState extends State<Finalized_screen> {
                                                   BorderRadius.circular(10.0),
                                               side: const BorderSide(
                                                   color: Colors.grey)))),
+                                  onPressed: null,
                                   child: Text(
                                     'GENERATE NFT',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.grey.shade300,
                                     ),
-                                  ),
-                                  onPressed: null),
+                                  )),
                               SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.01,
