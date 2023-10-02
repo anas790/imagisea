@@ -12,6 +12,7 @@ class Generate_screen extends StatefulWidget {
 }
 
 class _Generate_screenState extends State<Generate_screen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,14 +41,19 @@ class _Generate_screenState extends State<Generate_screen> {
                     children: [
                       Row(
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 8.0, top: 20),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0, top: 20),
                             child: Align(
                               alignment: Alignment.topLeft,
-                              child: Icon(
-                                Icons.menu,
-                                color: Colors.white,
-                                size: 35,
+                              child: IconButton(
+                                onPressed: () {
+                                  _scaffoldKey.currentState!.openDrawer();
+                                },
+                                icon: const Icon(
+                                  Icons.menu,
+                                  color: Colors.white,
+                                  size: 25,
+                                ),
                               ),
                             ),
                           ),
@@ -67,7 +73,8 @@ class _Generate_screenState extends State<Generate_screen> {
                           ),
                         ],
                       ),
-                      Text('IMAGISEA',
+                      Text(
+                          'IMAGISEA',
                           style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                   color: Colors.white,
@@ -88,6 +95,9 @@ class _Generate_screenState extends State<Generate_screen> {
                                 fillColor: Colors.white,
                                 filled: true,
                                 hintText: 'Alien Mechanical World',
+                                hintStyle: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                ),
                                 border: OutlineInputBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15)),
@@ -100,7 +110,7 @@ class _Generate_screenState extends State<Generate_screen> {
                     ],
                   ),
                 )),
-          ),
+              ),
           Flexible(
               flex: 4,
               child: Container(
@@ -200,6 +210,7 @@ class _Generate_screenState extends State<Generate_screen> {
                           children: [
                             ElevatedButton(
                               style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all(const Size(200, 50)),
                                   backgroundColor: MaterialStateProperty.all(
                                       Colors.blue.shade700),
                                   shape: MaterialStateProperty.all<
@@ -207,8 +218,7 @@ class _Generate_screenState extends State<Generate_screen> {
                                       RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(10.0),
-                                          side: const BorderSide(
-                                              color: Colors.grey)))),
+                                          ))),
                               child: const Text(
                                 'FINALIZE THE SELECTED IMAGE',
                                 style: TextStyle(
@@ -229,6 +239,7 @@ class _Generate_screenState extends State<Generate_screen> {
                             ),
                             ElevatedButton(
                               style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all(const Size(200, 50)),
                                   backgroundColor: MaterialStateProperty.all(
                                       Colors.red.shade900),
                                   shape: MaterialStateProperty.all<
@@ -236,8 +247,7 @@ class _Generate_screenState extends State<Generate_screen> {
                                       RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(10.0),
-                                          side: const BorderSide(
-                                              color: Colors.grey)))),
+                                          ))),
                               onPressed: () {
                                 Navigator.pop(context);
                               },

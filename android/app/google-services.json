@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "731632004067",
+    "project_id": "imagisea-01",
+    "storage_bucket": "imagisea-01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731632004067:android:c056549cffdfddc411ced6",
+        "android_client_info": {
+          "package_name": "com.crested.imagisea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731632004067-9goqmerdi9ng9k2ada4lgfnkatum9p2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCddXYv-WkC4pZKVyQP0dtdDMPH0fBzVBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731632004067-9goqmerdi9ng9k2ada4lgfnkatum9p2c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "731632004067-7fdtl323t5iiag9erh5pepfkt533ij9p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.crested.imagisea"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

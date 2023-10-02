@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 class Finalized_screen extends StatefulWidget {
   const Finalized_screen({Key? key}) : super(key: key);
 
@@ -9,6 +10,7 @@ class Finalized_screen extends StatefulWidget {
 }
 
 class _Finalized_screenState extends State<Finalized_screen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,14 +39,19 @@ class _Finalized_screenState extends State<Finalized_screen> {
                     children: [
                       Row(
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 8.0, top: 20),
+                           Padding(
+                            padding: const EdgeInsets.only(left: 8.0, top: 20),
                             child: Align(
                               alignment: Alignment.topLeft,
-                              child: Icon(
-                                Icons.menu,
-                                color: Colors.white,
-                                size: 35,
+                              child: IconButton(
+                                onPressed: () {
+                                  _scaffoldKey.currentState!.openDrawer();
+                                },
+                                icon: const Icon(
+                                  Icons.menu,
+                                  color: Colors.white,
+                                  size: 25,
+                                ),
                               ),
                             ),
                           ),
@@ -85,6 +92,9 @@ class _Finalized_screenState extends State<Finalized_screen> {
                                 fillColor: Colors.white,
                                 filled: true,
                                 hintText: 'Alien Mechanical World',
+                                hintStyle: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                ),
                                 border: OutlineInputBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15)),
@@ -132,6 +142,7 @@ class _Finalized_screenState extends State<Finalized_screen> {
                             children: [
                               ElevatedButton(
                                 style: ButtonStyle(
+                                    minimumSize: MaterialStateProperty.all(const Size(200, 50)),
                                     backgroundColor: MaterialStateProperty.all(
                                         Colors.blue.shade700),
                                     shape: MaterialStateProperty.all<
@@ -139,8 +150,7 @@ class _Finalized_screenState extends State<Finalized_screen> {
                                         RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
-                                            side: const BorderSide(
-                                                color: Colors.grey)))),
+                                            ))),
                                 onPressed: null,
                                 child: const Text(
                                   'SAVE TO GALLERY',
@@ -156,22 +166,24 @@ class _Finalized_screenState extends State<Finalized_screen> {
                               ),
                               ElevatedButton(
                                   style: ButtonStyle(
+                                      minimumSize: MaterialStateProperty.all(const Size(200, 50)),
                                       backgroundColor:
                                           MaterialStateProperty.all(
-                                              Colors.grey.shade600),
+                                              Colors.blue.shade900),
                                       shape: MaterialStateProperty.all<
                                               RoundedRectangleBorder>(
                                           RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
-                                              side: const BorderSide(
-                                                  color: Colors.grey)))),
-                                  onPressed: null,
-                                  child: Text(
+                                              ))),
+                                  onPressed: () {
+
+                                  },
+                                  child: const Text(
                                     'GENERATE NFT',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.grey.shade300,
+                                      color: Colors.white,
                                     ),
                                   )),
                               SizedBox(
@@ -180,6 +192,7 @@ class _Finalized_screenState extends State<Finalized_screen> {
                               ),
                               ElevatedButton(
                                 style: ButtonStyle(
+                                    minimumSize: MaterialStateProperty.all(const Size(200, 50)),
                                     backgroundColor: MaterialStateProperty.all(
                                         Colors.orange.shade500),
                                     shape: MaterialStateProperty.all<
@@ -187,8 +200,7 @@ class _Finalized_screenState extends State<Finalized_screen> {
                                         RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
-                                            side: const BorderSide(
-                                                color: Colors.grey)))),
+                                            ))),
                                 onPressed: null,
                                 child: const Text(
                                   'SHARE AS',

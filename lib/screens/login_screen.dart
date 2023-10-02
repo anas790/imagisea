@@ -360,7 +360,7 @@ class LoginState extends State<Login> {
                       child: const Text(
                         'GENERATE OTP',
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 15,
                           fontWeight: FontWeight.w600,
                         ),
                       )),
