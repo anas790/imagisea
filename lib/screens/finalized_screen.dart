@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class Finalized_screen extends StatefulWidget {
   const Finalized_screen({Key? key}) : super(key: key);
 
@@ -39,7 +38,7 @@ class _Finalized_screenState extends State<Finalized_screen> {
                     children: [
                       Row(
                         children: [
-                           Padding(
+                          Padding(
                             padding: const EdgeInsets.only(left: 8.0, top: 20),
                             child: Align(
                               alignment: Alignment.topLeft,
@@ -142,15 +141,15 @@ class _Finalized_screenState extends State<Finalized_screen> {
                             children: [
                               ElevatedButton(
                                 style: ButtonStyle(
-                                    minimumSize: MaterialStateProperty.all(const Size(200, 50)),
+                                    minimumSize: MaterialStateProperty.all(
+                                        const Size(200, 50)),
                                     backgroundColor: MaterialStateProperty.all(
                                         Colors.blue.shade700),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            ))),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ))),
                                 onPressed: null,
                                 child: const Text(
                                   'SAVE TO GALLERY',
@@ -165,42 +164,16 @@ class _Finalized_screenState extends State<Finalized_screen> {
                                     MediaQuery.of(context).size.height * 0.01,
                               ),
                               ElevatedButton(
-                                  style: ButtonStyle(
-                                      minimumSize: MaterialStateProperty.all(const Size(200, 50)),
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              Colors.blue.shade900),
-                                      shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                              ))),
-                                  onPressed: () {
-
-                                  },
-                                  child: const Text(
-                                    'GENERATE NFT',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  )),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.01,
-                              ),
-                              ElevatedButton(
                                 style: ButtonStyle(
-                                    minimumSize: MaterialStateProperty.all(const Size(200, 50)),
+                                    minimumSize: MaterialStateProperty.all(
+                                        const Size(200, 50)),
                                     backgroundColor: MaterialStateProperty.all(
                                         Colors.orange.shade500),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            ))),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ))),
                                 onPressed: null,
                                 child: const Text(
                                   'SHARE AS',

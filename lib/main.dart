@@ -10,17 +10,17 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    ThemeData(
+      primarySwatch: Colors.blue,
+    );
+    return const MaterialApp(
       title: 'Imagisea',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Loading_screen(),
+      home: Loading_screen(),
     );
   }
 }

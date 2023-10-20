@@ -147,10 +147,10 @@ class _MyProfileState extends State<MyProfile> {
                         borderRadius: BorderRadius.circular(18.0))),
                   ),
                   onPressed: null,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Row(
-                      children: const [
+                      children: [
                         CircleAvatar(
                           backgroundColor: Colors.white,
                           child: Icon(CryptoFontIcons.ETH, color: Colors.black),

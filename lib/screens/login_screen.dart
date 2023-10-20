@@ -148,11 +148,11 @@ class LoginState extends State<Login> {
                 const SizedBox(
                   height: 5.0,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: const [
+                    children: [
                       Text(
                         textAlign: TextAlign.left,
                         'A verification OTP will be sent to your phone number via SMS.',

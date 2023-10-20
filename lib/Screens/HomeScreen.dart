@@ -318,8 +318,8 @@ class _HomepageState extends State<Homepage> {
                         },
                       );
                     },
-                    child: Row(
-                      children: const [
+                    child: const Row(
+                      children: [
                         Text('Show All'),
                         Icon(Icons.arrow_right),
                       ],

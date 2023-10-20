@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:imagisea/screens/HomeScreen.dart';
 import 'package:imagisea/screens/finalized_screen.dart';
-import 'package:imagisea/screens/login_screen.dart';
 
 class Generate_screen extends StatefulWidget {
   const Generate_screen({Key? key}) : super(key: key);
@@ -73,8 +71,7 @@ class _Generate_screenState extends State<Generate_screen> {
                           ),
                         ],
                       ),
-                      Text(
-                          'IMAGISEA',
+                      Text('IMAGISEA',
                           style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                   color: Colors.white,
@@ -110,7 +107,7 @@ class _Generate_screenState extends State<Generate_screen> {
                     ],
                   ),
                 )),
-              ),
+          ),
           Flexible(
               flex: 4,
               child: Container(
@@ -210,15 +207,15 @@ class _Generate_screenState extends State<Generate_screen> {
                           children: [
                             ElevatedButton(
                               style: ButtonStyle(
-                                  minimumSize: MaterialStateProperty.all(const Size(200, 50)),
+                                  minimumSize: MaterialStateProperty.all(
+                                      const Size(200, 50)),
                                   backgroundColor: MaterialStateProperty.all(
                                       Colors.blue.shade700),
                                   shape: MaterialStateProperty.all<
                                           RoundedRectangleBorder>(
                                       RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          ))),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ))),
                               child: const Text(
                                 'FINALIZE THE SELECTED IMAGE',
                                 style: TextStyle(
@@ -239,15 +236,15 @@ class _Generate_screenState extends State<Generate_screen> {
                             ),
                             ElevatedButton(
                               style: ButtonStyle(
-                                  minimumSize: MaterialStateProperty.all(const Size(200, 50)),
+                                  minimumSize: MaterialStateProperty.all(
+                                      const Size(200, 50)),
                                   backgroundColor: MaterialStateProperty.all(
                                       Colors.red.shade900),
                                   shape: MaterialStateProperty.all<
                                           RoundedRectangleBorder>(
                                       RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          ))),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ))),
                               onPressed: () {
                                 Navigator.pop(context);
                               },
