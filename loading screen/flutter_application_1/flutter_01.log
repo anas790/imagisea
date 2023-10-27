@@ -2,8 +2,8 @@ Flutter crash report.
 Please report a bug at https://github.com/flutter/flutter/issues.
 
 ## command
-
 flutter run -d chrome
+
 
 ## exception
 

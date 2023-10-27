@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'prompt.dart';
+// import 'nft_screen.dart';
 
-// import 'loading_screen.dart';
+// import '_screen.dart';
+// import 'trading_screen.dart';
+// import 'profile_screen.dart';
+import 'finalized.dart';
 
 void main() {
   runApp(const Imagisea());
@@ -17,12 +20,14 @@ class Imagisea extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
 
-        // home: const LoadingScreen(),
-        home: PromptScreen());
+        // home: NFTAppScreen());
+        //  home: TradingScreen());
+        // home: ProfileScreen());
+        home: Finalized_screen());
   }
 }
 
-@override
-Widget build(BuildContext context) {
-  return const Placeholder();
-}
+// @override
+// Widget build(BuildContext context) {
+//   return const Placeholder();
+// }
